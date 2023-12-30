@@ -15,9 +15,9 @@ return new class extends Migration
         Schema::create('announcements', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->text('cover');
+            $table->text('cover_image');
             $table->string('title');
-            $table->longText('description');
+            $table->longText('content');
             $table->enum('status', ['drafted', 'published']);
             $table->timestamps();
         });
