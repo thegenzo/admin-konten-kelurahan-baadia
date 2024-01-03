@@ -5,7 +5,7 @@
         <div class="brand-logo d-flex align-items-center justify-content-center">
             <a href="#" class="text-nowrap logo-img">
                 <img src="{{ asset('logo-primary.png') }}" class="dark-logo rounded" width="38" />
-                <img src="{{ asset('logo-primary.png') }}" class="light-logo rounded" width="38" alt="" />
+                {{-- <img src="{{ asset('logo-primary.png') }}" class="light-logo rounded" width="38" alt="" /> --}}
             </a>
             <div class="close-btn d-lg-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                 <i class="ti ti-x fs-8 text-black"></i>
@@ -19,7 +19,7 @@
                 <!-- ============================= -->
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                    <span class="hide-menu text-white">Home</span>
+                    <span class="hide-menu text-dark">Home</span>
                 </li>
                 <!-- =================== -->
                 <!-- Dashboard -->

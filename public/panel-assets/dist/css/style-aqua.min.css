@@ -37406,7 +37406,7 @@ html[dir="rtl"] .welcome-bg-img {
     position: relative;
     z-index: 50;
     width: 100%;
-    background: #fdd428;
+    background: #002147;
     padding: 0 25px;
 }
 .app-header .container-fluid,
@@ -37637,7 +37637,7 @@ html[dir="rtl"] .welcome-bg-img {
 }
 .left-sidebar {
     width: 270px;
-    background-color: #002147;
+    background-color: #fdd428;
     position: absolute;
     transition: 0.2s ease-in;
     height: 100%;
@@ -37655,7 +37655,7 @@ html[dir="rtl"] .welcome-bg-img {
 .brand-logo {
     min-height: 70px;
     padding: 0 24px;
-    background: #fff;
+    background: #002147;
 }
 .unlimited-access {
     padding: 18px 22px 25px;
@@ -37679,7 +37679,7 @@ html[dir="rtl"] .welcome-bg-img {
     display: none;
 }
 .sidebar-nav ul .sidebar-item .sidebar-link {
-    color: #fff;
+    color: #000;
     display: flex;
     font-size: 14px;
     white-space: nowrap;
@@ -37767,8 +37767,8 @@ html[dir="rtl"] .welcome-bg-img {
 .sidebar-nav ul .sidebar-item.selected > .sidebar-link,
 .sidebar-nav ul .sidebar-item.selected > .sidebar-link.active,
 .sidebar-nav ul .sidebar-item > .sidebar-link.active {
-    background-color: #fdd428;
-    color: #000;
+    background-color: #002147;
+    color: #fff;
 }
 .sidebar-nav ul .sidebar-item.selected .sidebar-link.has-arrow::after {
     border-color: #000;
