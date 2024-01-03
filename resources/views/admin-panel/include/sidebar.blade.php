@@ -116,14 +116,15 @@
                         <span class="hide-menu">Pengumuman</span>
                     </a>
                 </li>
-                {{-- <li class="sidebar-item {{ Route::is('admin-panel.criteria.*') ? 'selected' : '' }}">
-                    <a class="sidebar-link" href="{{ route('admin-panel.criteria.index') }}" aria-expanded="false">
+                <li class="sidebar-item {{ Route::is('admin-panel.family-card.*') ? 'selected' : '' }}">
+                    <a class="sidebar-link" href="{{ route('admin-panel.family-card.index') }}" aria-expanded="false">
                         <span>
-                            <i class="ti ti-category-filled"></i>
+                            <i class="ti ti-table-share"></i>
                         </span>
-                        <span class="hide-menu">Kriteria</span>
+                        <span class="hide-menu">Nomor KK</span>
                     </a>
                 </li>
+                {{-- 
                 <li class="sidebar-item {{ Route::is('admin-panel.criminal.*') ? 'selected' : '' }}">
                     <a class="sidebar-link" href="{{ route('admin-panel.criminal.index') }}" aria-expanded="false">
                         <span>

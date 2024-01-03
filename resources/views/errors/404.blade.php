@@ -35,7 +35,7 @@
                                 alt="" class="img-fluid" width="500">
                             <h1 class="fw-semibold mb-7 fs-9">Opps!!!</h1>
                             <h4 class="fw-semibold mb-7">Halaman yang Anda Cari Tidak Ditemukan</h4>
-                            <a class="btn btn-primary" href="{{ route('web.home') }}" role="button">Kembali</a>
+                            <a class="btn btn-primary" href="{{ route('admin-panel.dashboard') }}" role="button">Kembali</a>
                         </div>
                     </div>
                 </div>

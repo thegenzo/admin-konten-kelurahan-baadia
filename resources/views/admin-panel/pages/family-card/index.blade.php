@@ -1,6 +1,6 @@
 @extends('admin-panel.layout.app')
 
- @section('title', 'Data Penempatan')
+ @section('title', 'Data Nomor Kartu Keluarga')
 
 @push('addon-style')
 	<!-- Datatable -->
@@ -14,17 +14,17 @@
             <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
                     <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Data Penempatan</h4>
+                        <h4 class="fw-semibold mb-8">Data Nomor Kartu Keluarga</h4>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a class="text-muted" href="{{ route('admin-panel.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item" aria-current="page">Data Penempatan</li>
+                                <li class="breadcrumb-item" aria-current="page">Data Nomor Kartu Keluarga</li>
                             </ol>
                         </nav>
                     </div>
                     <div class="col-3">
                         <div class="text-center">
-                            <img src="{{ asset('panel-assets/dist/images/breadcrumb/allotment.png') }}" alt=""
+                            <img src="{{ asset('panel-assets/dist/images/breadcrumb/folder.png') }}" alt=""
                                 class="img-fluid">
                         </div>
                     </div>
@@ -36,31 +36,35 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-body">
-							<a href="{{ route('admin-panel.allotments.create') }}" class="btn btn-secondary mb-3">Tambah Penempatan</a>
+							<a href="{{ route('admin-panel.family-card.create') }}" class="btn btn-secondary mb-3">Tambah Nomor Kartu Keluarga</a>
 							<div class="table-responsive">
 								<table id="dataTable" class="table border table-striped table-bordered display nowrap" style="width: 100%">
 									<thead>
 										<tr>
 											<th class="text-center">No</th>
-											<th>Nama Penempatan</th>
+											<th>Nomor Kartu Keluarga</th>
 											<th class="text-center">Action</th>
 										</tr>
 									</thead>
 									<tbody>
-										@foreach ($allotments as $allotment)
+										@foreach ($families as $family)
 											<tr>
 												<td class="text-center">{{ $loop->iteration }}</td>
-												<td>{{ $allotment->allotment_name }}</td>
+												<td>{{ $family->number }}</td>
 												<td class="text-center">
-													<a href="{{ route('admin-panel.allotments.edit', $allotment->id) }} " class="btn btn-sm btn-warning"
+													<a href="{{ route('admin-panel.family-card.show', $family->id) }} " class="btn btn-sm btn-info"
+                                                        data-toggle="tooltip" data-placement="top" title="Lihat Anggota Keluarga">
+                                                        <i class="ti ti-eye-check"></i>
+                                                    </a>
+													<a href="{{ route('admin-panel.family-card.edit', $family->id) }} " class="btn btn-sm btn-warning"
                                                         data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="fa fa-pencil-alt"></i>
                                                     </a>
-                                                    <form action="{{ route('admin-panel.allotments.destroy', $allotment->id) }}" method="POST" class="d-inline swal-confirm">
+                                                    <form action="{{ route('admin-panel.family-card.destroy', $family->id) }}" method="POST" class="d-inline swal-confirm">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button class="btn btn-sm btn-danger" type="submit"
-                                                            data-id="{{ $allotment->id }}">
+                                                            data-id="{{ $family->id }}">
                                                             <i class="fas fa-trash"></i>
                                                         </button>
                                                     </form>
@@ -91,8 +95,8 @@
 			var id = $(this).data("id");
 			event.preventDefault();
 			Swal.fire({
-				title: 'Yakin Hapus Penempatan?',
-				text: "Penempatan yang terhapus tidak dapat dikembalikan",
+				title: 'Yakin Hapus Nomor Kartu Keluarga?',
+				text: "Nomor Kartu Keluarga yang terhapus tidak dapat dikembalikan",
 				icon: 'warning',
 				showCancelButton: true,
 				confirmButtonColor: '#3085d6',

@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FamilyCardController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\ResidentController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +41,11 @@ Route::middleware('auth')->group(function () {
         Route::resource('news', NewsController::class, ['as' => 'admin-panel']);
 
         Route::resource('announcement', AnnouncementController::class, ['as' => 'admin-panel']);
+
+        Route::resource('family-card', FamilyCardController::class, ['as' => 'admin-panel']);
+
+        Route::post('/resident/{familyCardId}', [ResidentController::class, 'store'])->name('admin-panel.resident.store');
+        Route::resource('resident', ResidentController::class, ['as' => 'admin-panel']);
     });
 });
 
