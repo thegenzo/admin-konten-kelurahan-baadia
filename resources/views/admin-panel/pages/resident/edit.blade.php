@@ -61,13 +61,13 @@
                             <div class="form-group mb-3">
                                 <label for="gender">Jenis Kelamin <span class="text-danger">*</span></label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1" value="male" {{ $resident->gender == 'male' ? 'selected' : '' }}>
+                                    <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1" value="male" {{ $resident->gender == 'male' ? 'checked' : '' }}>
                                     <label class="form-check-label" for="flexRadioDefault1">
                                       Laki-laki
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" value="female" {{ $resident->gender == 'female' ? 'selected' : '' }}>
+                                    <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" value="female" {{ $resident->gender == 'female' ? 'checked' : '' }}>
                                     <label class="form-check-label" for="flexRadioDefault2">
                                       Perempuan
                                     </label>

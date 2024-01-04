@@ -45,7 +45,7 @@
                                         <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
                                         <input type="password" name="password" class="form-control" id="password">
                                     </div>
-                                    <button type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Sign In</button>
+                                    <button type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Masuk</button>
                                 </form>
                             </div>
                         </div>

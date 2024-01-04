@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
 
         Route::resource('family-card', FamilyCardController::class, ['as' => 'admin-panel']);
 
-        Route::post('/resident/{familyCardId}', [ResidentController::class, 'store'])->name('admin-panel.resident.store');
+        Route::post('/resident/{id}', [ResidentController::class, 'store'])->name('admin-panel.resident.store');
         Route::resource('resident', ResidentController::class, ['as' => 'admin-panel']);
     });
 });

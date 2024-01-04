@@ -62,8 +62,9 @@
 									</ul>
 								</div>
 							@endif
-							<form action="{{ route('admin-panel.resident.store', ['familyCardId' => $familyCard->id]) }}" method="POST">
+							<form action="/admin-panel/resident/{{ $familyCard->id }}" method="POST">
 								@csrf
+								@method('POST')
 								<div class="form-group mb-3">
 									<label for="id_number">Nomor Induk Keluarga <span class="text-danger">*</span></label>
 									<input type="number" name="id_number" id="id_number" class="form-control" value="{{ old('id_number') }}">
