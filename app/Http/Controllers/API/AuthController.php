@@ -47,9 +47,9 @@ class AuthController extends Controller
 
             return response()->json([
                 'user' => $user,
-                'access_token' => $token,
+                'token' => $token,
                 'token_type' => 'Bearer'
-            ]);    
+            ], 201);    
         } else {
             return response()->json([
                 'message' => 'Login failed',
@@ -134,8 +134,8 @@ class AuthController extends Controller
 
         return response()->json([
             'user'  => $user,
-            'access_token' => $token,
+            'token' => $token,
             'token_type' => 'Bearer'
-        ]);
+        ], 201);
     }
 }
