@@ -88,8 +88,8 @@ class AuthController extends Controller
         }
 
         return response()->json([
-            'messages' => 'NIK terdaftar!'
-        ]);
+            'message' => 'NIK terdaftar!'
+        ], 201);
     }
 
     public function register(Request $request)
