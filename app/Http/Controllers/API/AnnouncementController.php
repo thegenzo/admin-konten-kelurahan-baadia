@@ -3,20 +3,20 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\News;
+use App\Models\Announcement;
 use Illuminate\Http\Request;
 
-class NewsController extends Controller
+class AnnouncementController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $news = News::with('user')->latest()->get();
+        $announcement = Announcement::with('user')->latest()->get();
 
         return response()->json([
-            'news' => $news
+            'data' => $announcement
         ], 200);
     }
 
@@ -33,10 +33,10 @@ class NewsController extends Controller
      */
     public function show(string $id)
     {
-        $news = News::find($id);
+        $announcement = Announcement::findOrFail($id);
 
         return response()->json([
-            'news' => $news
+            'data' => $announcement
         ], 200);
     }
 
@@ -56,12 +56,8 @@ class NewsController extends Controller
         //
     }
 
-    public function topNews()
+    public function topAnnouncement()
     {
-        $topNews = News::with('user')->latest()->take(3)->get();
         
-        return response()->json([
-            'news' => $topNews,
-        ], 200);
     }
 }

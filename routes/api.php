@@ -26,6 +26,7 @@ Route::post('check-id', [AuthController::class, 'checkIfIdNumberExist']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
+    
+    Route::get('top_news', [NewsController::class, 'topNews']);
+    Route::apiResource('news', NewsController::class);
 });
-
-Route::apiResource('news', NewsController::class);
