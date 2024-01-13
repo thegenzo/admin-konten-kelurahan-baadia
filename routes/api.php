@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AnnouncementController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\NewsController;
 use Illuminate\Http\Request;
@@ -29,4 +30,7 @@ Route::middleware('auth:sanctum')->group(function () {
     
     Route::get('top_news', [NewsController::class, 'topNews']);
     Route::apiResource('news', NewsController::class);
+
+    Route::get('top_announcement', [AnnouncementController::class, 'topAnnouncement']);
+    Route::apiResource('announcement', AnnouncementController::class);
 });

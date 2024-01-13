@@ -16,7 +16,7 @@ class AnnouncementController extends Controller
         $announcement = Announcement::with('user')->latest()->get();
 
         return response()->json([
-            'data' => $announcement
+            'announcement' => $announcement
         ], 200);
     }
 
@@ -36,7 +36,7 @@ class AnnouncementController extends Controller
         $announcement = Announcement::findOrFail($id);
 
         return response()->json([
-            'data' => $announcement
+            'announcement' => $announcement
         ], 200);
     }
 
@@ -58,6 +58,10 @@ class AnnouncementController extends Controller
 
     public function topAnnouncement()
     {
-        
+        $announcement = Announcement::with('user')->latest()->take(3)->get();
+
+        return response()->json([
+            'announcement' => $announcement
+        ], 200);
     }
 }
