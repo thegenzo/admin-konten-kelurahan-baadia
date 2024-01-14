@@ -58,7 +58,7 @@ class AnnouncementController extends Controller
 
     public function topAnnouncement()
     {
-        $announcement = Announcement::with('user')->latest()->take(3)->get();
+        $announcement = Announcement::with('user')->latest()->take(6)->get();
 
         return response()->json([
             'announcement' => $announcement

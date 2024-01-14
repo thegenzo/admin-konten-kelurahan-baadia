@@ -58,7 +58,7 @@ class NewsController extends Controller
 
     public function topNews()
     {
-        $topNews = News::with('user')->latest()->take(3)->get();
+        $topNews = News::with('user')->latest()->take(6)->get();
         
         return response()->json([
             'news' => $topNews,
