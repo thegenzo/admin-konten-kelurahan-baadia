@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Resident;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -87,12 +89,25 @@ class AuthController extends Controller
             ], 400);
         }
 
+        $resident = Resident::where('id_number', $request->id_number)->first();
+        if($resident->user_id) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Please fill the required data',
+                'data' => [
+                    'id_number' => [
+                        'NIK ini telah memiliki akun'
+                    ],
+                ],
+            ], 401);
+        }
+
         return response()->json([
             'message' => 'NIK terdaftar!'
         ], 201);
     }
 
-    public function register(Request $request)
+    public function register(Request $request, $idNumber)
     {
         $rules = [
             'name'      => 'required',
@@ -123,19 +138,37 @@ class AuthController extends Controller
             ], 400);
         }
 
-        $data = $request->all();
-        $data['level'] = 'user';
-        $data['avatar'] = $request->level == 'admin' ? 'https://static-00.iconduck.com/assets.00/user-icon-2048x2048-ihoxz4vq.png' : 'https://cdn-icons-png.flaticon.com/512/945/945120.png';
+        DB::beginTransaction();
+        try {
+            $data = $request->all();
+            $data['level'] = 'user';
+            $data['avatar'] = $request->level == 'admin' ? 'https://static-00.iconduck.com/assets.00/user-icon-2048x2048-ihoxz4vq.png' : 'https://cdn-icons-png.flaticon.com/512/945/945120.png';
+    
+            $user = User::create($data);
+    
+            // update resident based on id_number
+            $resident = Resident::where('id_number', $idNumber)->update([
+                'user_id' => $user->id
+            ]);
+    
+            // generate token
+            $token = $user->createToken('auth_token')->plainTextToken;
+            
+            DB::commit();
+    
+            return response()->json([
+                'user'  => $user,
+                'token' => $token,
+                'token_type' => 'Bearer'
+            ], 201);
 
-        $user = User::create($data);
+        } catch (\Exception $e) { 
+            DB::rollBack();
 
-        // generate token
-        $token = $user->createToken('auth_token')->plainTextToken;
+            return response()->json([
+                'message' => 'Something went wrong'
+            ]);
+        }
 
-        return response()->json([
-            'user'  => $user,
-            'token' => $token,
-            'token_type' => 'Bearer'
-        ], 201);
     }
 }

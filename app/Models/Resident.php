@@ -11,6 +11,7 @@ class Resident extends Model
 
     protected $fillable = [
         'family_card_id',
+        'user_id',
         'id_number',
         'name',
         'gender',
@@ -21,7 +22,7 @@ class Resident extends Model
         'address',
         'phone',
         'marital_status',
-        'occupation'
+        'occupation',
     ];
 
     public function family_card()
