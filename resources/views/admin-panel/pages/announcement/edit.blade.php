@@ -70,7 +70,7 @@
                             </div>
                             <div class="form-group mb-3">
 								<label for="content">Konten Pengumuman <span class="text-danger">*</span></label>
-								<textarea name="content" id="" cols="30" rows="50" class="form-control">{!! $announcement->content !!}</textarea>
+								<textarea name="content" id="" cols="30" rows="10" class="form-control">{!! $announcement->content !!}</textarea>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="status">Status <span class="text-danger">*</span></label>
