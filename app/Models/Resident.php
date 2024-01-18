@@ -29,4 +29,9 @@ class Resident extends Model
     {
         return $this->belongsTo(FamilyCard::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

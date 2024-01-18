@@ -43,12 +43,18 @@ class AuthController extends Controller
         }
 
         $user = User::where('email', $request->email)->first();
+        $resident = Resident::where('user_id', $user->id)->first();
+
+        if(!$resident) {
+            $resident = [];
+        }
 
         if($user && Hash::check($request->password, $user->password)) {
             $token = $user->createToken('auth_token')->plainTextToken;
 
             return response()->json([
                 'user' => $user,
+                'resident' => $resident,
                 'token' => $token,
                 'token_type' => 'Bearer'
             ], 201);    
@@ -147,9 +153,15 @@ class AuthController extends Controller
             $user = User::create($data);
     
             // update resident based on id_number
-            $resident = Resident::where('id_number', $idNumber)->update([
+            Resident::where('id_number', $idNumber)->update([
                 'user_id' => $user->id
             ]);
+
+            $resident = Resident::where('user_id', $user->id)->first();
+        
+            if(!$resident) {
+                $resident = [];
+            }
     
             // generate token
             $token = $user->createToken('auth_token')->plainTextToken;
