@@ -2,10 +2,10 @@
 
 @section('title', 'Edit Data Berita')
 
-@push('addon-style')
+{{-- @push('addon-style')
 	<!-- Summernote -->
 	<link rel="stylesheet" href="{{ asset('panel-assets/dist/libs/summernote/dist/summernote-lite.min.css') }}">
-@endpush
+@endpush --}}
 
 @section('content')
     <div class="container-fluid">
@@ -70,7 +70,7 @@
                             </div>
                             <div class="form-group mb-3">
 								<label for="content">Konten Berita <span class="text-danger">*</span></label>
-								<textarea name="content" id="" cols="30" rows="50" class="summernote">{!! $news->content !!}</textarea>
+								<textarea name="content" id="" cols="30" rows="10" class="form-control">{!! $news->content !!}</textarea>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="status">Status <span class="text-danger">*</span></label>
@@ -108,9 +108,9 @@
         readURL(this);
     });
 </script>
-<script>
+{{-- <script>
     $(".summernote").summernote({
         height: '200px'
     });
-</script>
+</script> --}}
 @endpush
