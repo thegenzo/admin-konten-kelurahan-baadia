@@ -13,7 +13,7 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        $announcement = Announcement::with('user')->latest()->get();
+        $announcement = Announcement::with('user')->where('status', 'published')->latest()->get();
 
         return response()->json([
             'announcement' => $announcement
@@ -58,7 +58,7 @@ class AnnouncementController extends Controller
 
     public function topAnnouncement()
     {
-        $announcement = Announcement::with('user')->latest()->take(6)->get();
+        $announcement = Announcement::with('user')->where('status', 'published')->latest()->take(6)->get();
 
         return response()->json([
             'announcement' => $announcement

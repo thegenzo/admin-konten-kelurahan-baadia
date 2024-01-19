@@ -13,7 +13,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::with('user')->latest()->get();
+        $news = News::with('user')->where('status', 'published')->latest()->get();
 
         return response()->json([
             'news' => $news
@@ -58,7 +58,7 @@ class NewsController extends Controller
 
     public function topNews()
     {
-        $topNews = News::with('user')->latest()->take(6)->get();
+        $topNews = News::with('user')->where('status', 'published')->latest()->take(6)->get();
         
         return response()->json([
             'news' => $topNews,
