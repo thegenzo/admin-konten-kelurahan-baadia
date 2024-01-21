@@ -15,6 +15,6 @@ class SettingController extends Controller
         return response()->json([
             'success' => true,
             'data' => $setting,
-        ]);
+        ], 200);
     }
 }
