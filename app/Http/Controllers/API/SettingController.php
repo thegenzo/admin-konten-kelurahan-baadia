@@ -10,7 +10,7 @@ class SettingController extends Controller
 {
     public function getVisiMisi()
     {
-        $setting = Setting::find(1);
+        $setting = Setting::find(2);
 
         return response()->json([
             'success' => true,
