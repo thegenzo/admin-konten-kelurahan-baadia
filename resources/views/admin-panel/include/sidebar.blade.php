@@ -121,8 +121,34 @@
                         <span>
                             <i class="ti ti-table-share"></i>
                         </span>
-                        <span class="hide-menu">Nomor KK</span>
+                        <span class="hide-menu">Data Keluarga</span>
                     </a>
+                </li>
+                <li class="sidebar-item {{ Route::is('admin-panel.setting.*') ? 'selected' : '' }}">
+                    <a class="sidebar-link has-arrow {{ Route::is('admin-panel.setting.*') ? 'active' : '' }}" href="#" aria-expanded="false">
+                        <span class="d-flex">
+                            <i class="ti ti-settings"></i>
+                        </span>
+                        <span class="hide-menu">Pengaturan</span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse first-level">
+                        <li class="sidebar-item {{ Route::is('admin-panel.setting.visi-misi') ? 'active' : '' }}">
+                            <a href="{{ route('admin-panel.setting.visi-misi') }}" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Visi dan Misi</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item {{ Route::is('admin-panel.setting.running-text') ? 'active' : '' }}">
+                            <a href="{{ route('admin-panel.setting.running-text') }}" class="sidebar-link">
+                                <div class="round-16 d-flex align-items-center justify-content-center">
+                                    <i class="ti ti-circle"></i>
+                                </div>
+                                <span class="hide-menu">Running Text</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 {{-- 
                 <li class="sidebar-item {{ Route::is('admin-panel.criminal.*') ? 'selected' : '' }}">
@@ -141,40 +167,7 @@
                         <span class="hide-menu">Barang Bukti</span>
                     </a>
                 </li>
-                <li class="sidebar-item {{ Route::is('admin-panel.evidence.*') ? 'selected' : '' }}">
-                    <a class="sidebar-link has-arrow {{ Route::is('admin-panel.evidence.*') ? 'active' : '' }}" href="#" aria-expanded="false">
-                        <span class="d-flex">
-                            <i class="ti ti-archive-filled"></i>
-                        </span>
-                        <span class="hide-menu">Barang Bukti</span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse first-level">
-                        <li class="sidebar-item {{ Route::is('admin-panel.evidence.index') ? 'active' : '' }}">
-                            <a href="{{ route('admin-panel.evidence.index') }}" class="sidebar-link">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Ditahan</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item {{ Route::is('admin-panel.evidence.returned') ? 'active' : '' }}">
-                            <a href="{{ route('admin-panel.evidence.returned') }}" class="sidebar-link">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Dikembalikan</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item {{ Route::is('admin-panel.evidence.terminated') ? 'active' : '' }}">
-                            <a href="{{ route('admin-panel.evidence.terminated') }}" class="sidebar-link">
-                                <div class="round-16 d-flex align-items-center justify-content-center">
-                                    <i class="ti ti-circle"></i>
-                                </div>
-                                <span class="hide-menu">Dimusnahkan</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+
                 <li class="sidebar-item {{ Route::is('admin-panel.scan-barcode.*') ? 'selected' : '' }}">
                     <a class="sidebar-link" href="{{ route('admin-panel.scan-barcode.index') }}" aria-expanded="false">
                         <span>

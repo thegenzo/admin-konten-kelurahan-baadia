@@ -28,7 +28,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a class="text-muted" href="{{ route('admin-panel.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a class="text-muted" href="{{ route('admin-panel.family-card.index') }}">Data Nomor Kartu Keluarga</a></li>
+                                <li class="breadcrumb-item"><a class="text-muted" href="{{ route('admin-panel.family-card.index') }}">Data Keluarga</a></li>
                                 <li class="breadcrumb-item" aria-current="page">Daftar Anggota Keluarga</li>
                             </ol>
                         </nav>

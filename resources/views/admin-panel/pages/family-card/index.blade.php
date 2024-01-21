@@ -1,6 +1,6 @@
 @extends('admin-panel.layout.app')
 
- @section('title', 'Data Nomor Kartu Keluarga')
+ @section('title', 'Data Keluarga')
 
 @push('addon-style')
 	<!-- Datatable -->
@@ -14,11 +14,11 @@
             <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
                     <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Data Nomor Kartu Keluarga</h4>
+                        <h4 class="fw-semibold mb-8">Data Keluarga</h4>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a class="text-muted" href="{{ route('admin-panel.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item" aria-current="page">Data Nomor Kartu Keluarga</li>
+                                <li class="breadcrumb-item" aria-current="page">Data Keluarga</li>
                             </ol>
                         </nav>
                     </div>

@@ -1,6 +1,6 @@
 @extends('admin-panel.layout.app')
 
-@section('title', 'Tambah Data Nomor Kartu Keluarga')
+@section('title', 'Tambah Data Keluarga')
 
 @section('content')
     <div class="container-fluid">
@@ -8,14 +8,14 @@
             <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
                     <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Tambah Data Nomor Kartu Keluarga</h4>
+                        <h4 class="fw-semibold mb-8">Tambah Data Keluarga</h4>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a class="text-muted"
                                         href="{{ route('admin-panel.dashboard') }}">Dashboard</a></li>
                                 <li class="breadcrumb-item"><a class="text-muted"
-                                        href="{{ route('admin-panel.family-card.index') }}">Data Nomor Kartu Keluarga</a></li>
-                                <li class="breadcrumb-item" aria-current="page">Tambah Data Nomor Kartu Keluarga</li>
+                                        href="{{ route('admin-panel.family-card.index') }}">Data Keluarga</a></li>
+                                <li class="breadcrumb-item" aria-current="page">Tambah Data Keluarga</li>
                             </ol>
                         </nav>
                     </div>
@@ -32,7 +32,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header bg-warning">
-                        <h4 class="mb-0 text-white card-title">Masukkan Data Nomor Kartu Keluarga Disini</h4>
+                        <h4 class="mb-0 text-white card-title">Masukkan Data Keluarga Disini</h4>
                     </div>
                     <div class="card-body">
                         @if (count($errors) > 0)
@@ -50,7 +50,7 @@
                         <form method="POST" action="{{ route('admin-panel.family-card.store') }}">
                             @csrf
                             <div class="form-group mb-3">
-                                <label for="number">Nama Nomor Kartu Keluarga <span class="text-danger">*</span></label>
+                                <label for="number">Nomor Kartu Keluarga <span class="text-danger">*</span></label>
                                 <input type="number" name="number" id="number" class="form-control"
                                     value="{{ old('number') }}">
                             </div>

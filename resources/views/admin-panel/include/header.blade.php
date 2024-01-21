@@ -28,6 +28,10 @@ $auth = [
                 <i class="ti ti-dots fs-7"></i>
             </span>
         </button>
+        <marquee behavior="" direction="" class="text-white">
+            <!-- Get data from Setting where id == 1 -->
+            {{ \App\Models\Setting::find(1)->content }}
+        </marquee>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <div class="d-flex align-items-center justify-content-between">
                 <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-center">
@@ -60,33 +64,6 @@ $auth = [
                                         </p>
                                     </div>
                                 </div>
-                                {{-- <div class="message-body">
-                                    <a href="page-user-profile.html"
-                                        class="py-8 px-7 mt-8 d-flex align-items-center">
-                                        <span
-                                            class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
-                                            <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-account.svg"
-                                                alt="" width="24" height="24">
-                                        </span>
-                                        <div class="w-75 d-inline-block v-middle ps-3">
-                                            <h6 class="mb-1 bg-hover-primary fw-semibold"> My Profile
-                                            </h6>
-                                            <span class="d-block text-dark">Account Settings</span>
-                                        </div>
-                                    </a>
-                                    <a href="app-email.html"
-                                        class="py-8 px-7 d-flex align-items-center">
-                                        <span
-                                            class="d-flex align-items-center justify-content-center bg-light rounded-1 p-6">
-                                            <img src="https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/dist/images/svgs/icon-inbox.svg"
-                                                alt="" width="24" height="24">
-                                        </span>
-                                        <div class="w-75 d-inline-block v-middle ps-3">
-                                            <h6 class="mb-1 bg-hover-primary fw-semibold">My Inbox</h6>
-                                            <span class="d-block text-dark">Messages & Emails</span>
-                                        </div>
-                                    </a>
-                                </div> --}}
                                 <div class="d-grid py-4 px-7 pt-8">
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf

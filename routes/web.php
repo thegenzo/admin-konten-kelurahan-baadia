@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FamilyCardController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ResidentController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,12 @@ Route::middleware('auth')->group(function () {
 
         Route::post('/resident/{id}', [ResidentController::class, 'store'])->name('admin-panel.resident.store');
         Route::resource('resident', ResidentController::class, ['as' => 'admin-panel']);
+
+        // Route for setting
+        Route::get('/setting/visi-dan-misi', [SettingController::class, 'visiMisi'])->name('admin-panel.setting.visi-misi');
+        Route::post('/setting/visi-dan-misi', [SettingController::class, 'updateVisiMisi'])->name('admin-panel.setting.visi-misi');
+        Route::get('/setting/running-text', [SettingController::class, 'runningText'])->name('admin-panel.setting.running-text');
+        Route::post('/setting/running-text', [SettingController::class, 'updateRunningText'])->name('admin-panel.setting.running-text');
     });
 });
 

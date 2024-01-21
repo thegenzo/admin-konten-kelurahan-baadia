@@ -1,27 +1,30 @@
 @extends('admin-panel.layout.app')
 
-@section('title', 'Edit Data Keluarga')
+@section('title', $setting->name)
+
+{{-- @push('addon-style')
+	<!-- Summernote -->
+	<link rel="stylesheet" href="{{ asset('panel-assets/dist/libs/summernote/dist/summernote-lite.min.css') }}">
+@endpush --}}
 
 @section('content')
     <div class="container-fluid">
-        <div class="card bg-light-warning shadow-none position-relative overflow-hidden">
+        <div class="card bg-light-secondary shadow-none position-relative overflow-hidden">
             <div class="card-body px-4 py-3">
                 <div class="row align-items-center">
                     <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Edit Data Keluarga</h4>
+                        <h4 class="fw-semibold mb-8">{{ $setting->name }}</h4>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a class="text-muted"
                                         href="{{ route('admin-panel.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a class="text-muted"
-                                        href="{{ route('admin-panel.family-card.index') }}">Data Keluarga</a></li>
-                                <li class="breadcrumb-item" aria-current="page">Edit Data Keluarga</li>
+                                <li class="breadcrumb-item" aria-current="setting">{{ $setting->name }}</li>
                             </ol>
                         </nav>
                     </div>
                     <div class="col-3">
                         <div class="text-center">
-                            <img src="{{ asset('panel-assets/dist/images/breadcrumb/folder.png') }}" alt=""
+                            <img src="{{ asset('panel-assets/dist/images/breadcrumb/news.png') }}" alt=""
                                 class="img-fluid">
                         </div>
                     </div>
@@ -32,7 +35,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header bg-warning">
-                        <h4 class="mb-0 text-white card-title">Edit Data Keluarga Disini</h4>
+                        <h4 class="mb-0 text-white card-title">Update {{ $setting->name }} disini</h4>
                     </div>
                     <div class="card-body">
                         @if (count($errors) > 0)
@@ -47,16 +50,12 @@
                                 </ul>
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('admin-panel.family-card.update', $familyCard->id) }}">
+                        <form method="POST" action="" enctype="multipart/form-data">
                             @csrf
-							@method('PUT')
                             <div class="form-group mb-3">
-                                <label for="number">Nomor Kartu Keluarga <span class="text-danger">*</span></label>
-                                <input type="text" name="number" id="number" class="form-control"
-                                    value="{{ $familyCard->number }}">
-						    </div>
+								<textarea name="content" id="" cols="30" rows="10" class="form-control">{{ $setting->content }}</textarea>
+                            </div>
                             <button type="submit" class="btn btn-success">Simpan</button>
-                            <a href="{{ route('admin-panel.family-card.index') }}" class="btn btn-warning mx-2">Kembali</a>
                         </form>
                     </div>
                 </div>
@@ -64,3 +63,12 @@
         </div>
     </div>
 @endsection
+
+{{-- @push('addon-script')
+<script src="{{ asset('panel-assets/dist/libs/summernote/dist/summernote-lite.min.js') }}"></script>
+<script>
+    $(".summernote").summernote({
+        height: '300px'
+    });
+</script>
+@endpush --}}

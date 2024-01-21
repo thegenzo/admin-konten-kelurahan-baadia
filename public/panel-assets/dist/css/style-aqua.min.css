@@ -37719,7 +37719,7 @@ html[dir="rtl"] .welcome-bg-img {
 }
 .sidebar-nav ul .sidebar-item .first-level .sidebar-item .sidebar-link:hover {
     background-color: transparent;
-    color: #FDDC52;
+    color: #000000;
 }
 .sidebar-nav
     ul
@@ -37755,8 +37755,8 @@ html[dir="rtl"] .welcome-bg-img {
     font-size: 7px;
 }
 .sidebar-nav ul .sidebar-item .first-level .sidebar-item .sidebar-link.active {
-    background-color: transparent !important;
-    color: #FDDC52;
+    background-color: #bddcff;
+    color: #002147;
 }
 .sidebar-nav ul .sidebar-item .two-level .sidebar-item .sidebar-link {
     padding: 8px 10px 8px 45px;
