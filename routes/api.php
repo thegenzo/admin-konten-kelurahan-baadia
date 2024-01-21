@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\API\AnnouncementController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\NewsController;
@@ -34,6 +33,4 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('top_announcement', [AnnouncementController::class, 'topAnnouncement']);
     Route::apiResource('announcement', AnnouncementController::class);
-
-    Route::get('visi-misi', [SettingController::class, 'getVisiMisi']);
 });
