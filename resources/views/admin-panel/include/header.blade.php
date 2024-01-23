@@ -30,7 +30,7 @@ $auth = [
         </button>
         <marquee behavior="" direction="" class="text-white">
             <!-- Get data from Setting where id == 1 -->
-            {{ \App\Models\Setting::find(1)->content }}
+            <span style="font-weight: 900">{{ \App\Models\Setting::find(1)->content }}</span>
         </marquee>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <div class="d-flex align-items-center justify-content-between">
